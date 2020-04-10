@@ -1,5 +1,5 @@
 {
-    "name": "template-factory",
+    "name": "cloud-app-factory",
     "private": true,
     "workspaces": ["app", "infrastructure"],
     "resolutions": {
