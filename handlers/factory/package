@@ -15,7 +15,6 @@ mkdir -p layer/nodejs packaged
 )
 
 # package only production dependencies
-rm -rf node_modules
 yarn --production
 cp -r node_modules layer/nodejs/
 (

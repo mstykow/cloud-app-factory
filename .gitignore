@@ -43,3 +43,4 @@ deployment.zip
 **/awsconfiguration.json
 **/amplifyconfiguration.json
 **/amplify-gradle-config.json
+**/aws-exports.js

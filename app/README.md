@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and [AWS Amplify](https://aws-amplify.github.io/).
 
+After deploying the infrastructure you need to adjust the TEMPLATE_FACTORY_INVOKE_URL in config.ts.
+
 In the project directory, you can run:
 
 ## `yarn start`
