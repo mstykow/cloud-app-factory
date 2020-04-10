@@ -4,9 +4,9 @@ _Cloud App Factory_ is a proof of concept of how to integrate infrastructure as 
 
 ## Use Case
 
-As DevOps engineers we might ask: how can we give our users deeper access to cloud services and infrastructure without needing to burden them with the particulars of our tech stack? For example,
+As DevOps engineers we might ask: how can we give our users deeper access to cloud services and infrastructure without needing to burden them with the particulars of our tech stack? For example:
 
-- How can we enable data stewards to easily run dynamic, managed, serverless ETL jobs without forcing them to learn PySpark and AWS Glue?
+- How can we enable data stewards to easily run dynamic and serverless ETL jobs without forcing them to learn PySpark and AWS Glue?
 - How can we enable data scientist to launch custom configured AWS EMR clusters or SageMaker notebooks at the click of a button?
 
 The answer provided by this proof of concept is this:
