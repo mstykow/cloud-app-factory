@@ -1,0 +1,126 @@
+{
+    "name": "infrastructure",
+    "version": "1.0.0",
+    "license": "MIT",
+    "bin": {
+        "template-factory": "bin/template-factory.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "watch": "tsc -w",
+        "cdk": "cdk",
+        "test": "jest --watch",
+        "lint": "eslint --max-warnings=0 'bin/**/*.ts' 'lib/**/*.ts' 'test/**/*.ts'",
+        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 'bin/**/*.ts' 'lib/**/*.ts' 'test/**/*.ts'"
+    },
+    "devDependencies": {
+        "@aws-cdk/assert": "^1.9.0",
+        "@types/aws-lambda": "^8.10.46",
+        "@types/jest": "^25.1.4",
+        "@types/lodash": "^4.14.149",
+        "@types/source-map-support": "^0.5.1",
+        "@typescript-eslint/eslint-plugin": "^2.3.1",
+        "@typescript-eslint/parser": "^2.3.1",
+        "aws-cdk": "^1.9.0",
+        "eslint": "^6.5.0",
+        "jest": "^25.1.0",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.4",
+        "ts-jest": "^25.2.1",
+        "ts-node": "^8.1.0",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {
+        "@aws-cdk/aws-apigateway": "^1.9.0",
+        "@aws-cdk/aws-dynamodb": "^1.9.0",
+        "@aws-cdk/aws-lambda": "^1.30.0",
+        "@aws-cdk/aws-lambda-event-sources": "^1.9.0",
+        "@aws-cdk/aws-s3": "^1.9.0",
+        "@aws-cdk/aws-s3-deployment": "^1.30.0",
+        "@aws-cdk/aws-sqs": "^1.9.0",
+        "@aws-cdk/core": "^1.9.0",
+        "@mobileposse/auto-delete-bucket": "^1.28.0",
+        "lodash": "^4.17.15",
+        "source-map-support": "^0.5.9"
+    },
+    "jest": {
+        "roots": [
+            "<rootDir>/test"
+        ],
+        "testMatch": [
+            "**/*.test.ts"
+        ],
+        "transform": {
+            "^.+\\.tsx?$": "ts-jest"
+        }
+    },
+    "eslintConfig": {
+        "env": {
+            "node": true,
+            "es2017": true,
+            "jest": true
+        },
+        "extends": [
+            "eslint:recommended"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "parserOptions": {
+            "sourceType": "module"
+        },
+        "rules": {
+            "camelcase": "error",
+            "consistent-return": "error",
+            "dot-location": [
+                "error",
+                "property"
+            ],
+            "dot-notation": "error",
+            "eqeqeq": "error",
+            "no-alert": "error",
+            "no-duplicate-imports": "error",
+            "no-eval": "error",
+            "no-extend-native": "error",
+            "no-lone-blocks": "error",
+            "no-nested-ternary": "error",
+            "no-new-func": "error",
+            "no-return-assign": "error",
+            "no-return-await": "error",
+            "no-self-compare": "error",
+            "no-sequences": "error",
+            "no-template-curly-in-string": "error",
+            "no-throw-literal": "error",
+            "no-unused-vars": "off",
+            "no-unused-expressions": "error",
+            "no-useless-call": "error",
+            "no-useless-computed-key": "error",
+            "no-useless-concat": "error",
+            "@typescript-eslint/no-useless-constructor": "error",
+            "no-useless-rename": "error",
+            "no-useless-return": "error",
+            "no-var": "error",
+            "object-shorthand": "error",
+            "prefer-arrow-callback": "error",
+            "prefer-const": "error",
+            "prefer-spread": "error",
+            "require-await": "error",
+            "yoda": "error"
+        }
+    },
+    "lint-staged": {
+        "bin/**/*.ts": [
+            "prettier --single-quote --jsx-single-quote --write --print-width 120",
+            "git add"
+        ],
+        "lib/**/*.ts": [
+            "prettier --single-quote --jsx-single-quote --write --print-width 120",
+            "git add"
+        ],
+        "test/**/*.ts": [
+            "prettier --single-quote --jsx-single-quote --write --print-width 120",
+            "git add"
+        ]
+    }
+}

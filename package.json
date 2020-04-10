@@ -1,0 +1,8 @@
+{
+    "name": "template-factory",
+    "private": true,
+    "workspaces": ["app", "infrastructure", "handlers/factory", "handlers/publish", "handlers/subscribe"],
+    "scripts": {
+        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 'bin/**/*.ts' 'lib/**/*.ts' 'test/**/*.ts'"
+    }
+}

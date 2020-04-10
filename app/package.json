@@ -1,0 +1,100 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "@aws-amplify/api": "^3.1.6",
+        "@aws-amplify/pubsub": "^3.0.7",
+        "@material-ui/core": "^4.9.7",
+        "@material-ui/lab": "^4.0.0-alpha.46",
+        "@testing-library/jest-dom": "^5.5.0",
+        "@testing-library/react": "^10.0.2",
+        "@testing-library/user-event": "^10.0.1",
+        "aws-amplify": "^3.0.7",
+        "aws-amplify-react": "^4.1.6",
+        "aws-sdk": "^2.643.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-scripts": "^3.4.1",
+        "typescript": "^3.7.2"
+    },
+    "devDependencies": {
+        "@types/jest": "^25.2.1",
+        "@types/node": "^13.11.1",
+        "@types/react": "^16.9.0",
+        "@types/react-dom": "^16.9.0",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.1"
+    },
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "lint": "eslint --max-warnings=0 'src/**/*.{ts,tsx}'",
+        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 'src/**/*.{ts,tsx,json,md}'",
+        "typecheck": "tsc"
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app"
+        ],
+        "rules": {
+            "camelcase": "error",
+            "curly": "error",
+            "consistent-return": "error",
+            "dot-location": [
+                "error",
+                "property"
+            ],
+            "dot-notation": "error",
+            "eqeqeq": "error",
+            "no-alert": "error",
+            "no-console": "error",
+            "no-duplicate-imports": "error",
+            "no-eval": "error",
+            "no-extend-native": "error",
+            "no-lone-blocks": "error",
+            "no-nested-ternary": "error",
+            "no-new-func": "error",
+            "no-return-assign": "error",
+            "no-return-await": "error",
+            "no-self-compare": "error",
+            "no-sequences": "error",
+            "no-template-curly-in-string": "error",
+            "no-throw-literal": "error",
+            "no-unused-expressions": "error",
+            "no-useless-call": "error",
+            "no-useless-computed-key": "error",
+            "no-useless-concat": "error",
+            "no-useless-constructor": "error",
+            "no-useless-rename": "error",
+            "no-useless-return": "error",
+            "no-var": "error",
+            "object-shorthand": "error",
+            "prefer-arrow-callback": "error",
+            "prefer-const": "error",
+            "prefer-spread": "error",
+            "require-await": "error",
+            "yoda": "error"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{ts,tsx,json,md}": [
+            "prettier --single-quote --jsx-single-quote --write --print-width 120",
+            "git add"
+        ]
+    }
+}

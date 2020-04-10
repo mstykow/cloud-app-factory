@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd "$(dirname "$0")"
+
+echo "Build handler"
+rm -rf layer packaged build
+yarn
+yarn tsc
+mkdir -p layer/nodejs packaged
+(
+    cd build/
+    zip -r ../packaged/deployment.zip *
+)
+
+# package only production dependencies
+rm -rf node_modules
+yarn --production
+cp -r node_modules layer/nodejs/
+(
+    cd layer
+    zip -r ../packaged/dependencies.zip nodejs
+)
+
+# restore dev-environment
+yarn

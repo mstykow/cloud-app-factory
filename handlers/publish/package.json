@@ -1,0 +1,90 @@
+{
+    "name": "publish",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "test": "jest --watch",
+        "lint": "eslint --max-warnings=0 'src/**/*.{js,jsx,ts,tsx}'",
+        "build": "./package",
+        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 'src/**/*.{js,jsx,ts,tsx,json,md}'"
+    },
+    "devDependencies": {
+        "@types/aws-lambda": "^8.10.46",
+        "@types/jest": "^25.1.4",
+        "@types/lodash": "^4.14.149",
+        "@types/node": "^13.9.2",
+        "@typescript-eslint/eslint-plugin": "^2.3.1",
+        "@typescript-eslint/parser": "^2.3.1",
+        "aws-sdk": "^2.643.0",
+        "eslint": "^6.5.0",
+        "jest": "^25.1.0",
+        "lint-staged": "^10.0.8",
+        "prettier": "^2.0.4",
+        "ts-jest": "^25.2.1",
+        "ts-node": "^8.1.0",
+        "typescript": "^3.8.3"
+    },
+    "dependencies": {
+        "lodash": "^4.17.15"
+    },
+    "eslintConfig": {
+        "env": {
+            "node": true,
+            "es2017": true,
+            "jest": true
+        },
+        "extends": [
+            "eslint:recommended"
+        ],
+        "parser": "@typescript-eslint/parser",
+        "plugins": [
+            "@typescript-eslint"
+        ],
+        "parserOptions": {
+            "sourceType": "module"
+        },
+        "rules": {
+            "camelcase": "error",
+            "consistent-return": "error",
+            "dot-location": [
+                "error",
+                "property"
+            ],
+            "dot-notation": "error",
+            "eqeqeq": "error",
+            "no-alert": "error",
+            "no-duplicate-imports": "error",
+            "no-eval": "error",
+            "no-extend-native": "error",
+            "no-lone-blocks": "error",
+            "no-nested-ternary": "error",
+            "no-new-func": "error",
+            "no-return-assign": "error",
+            "no-return-await": "error",
+            "no-self-compare": "error",
+            "no-sequences": "error",
+            "no-template-curly-in-string": "error",
+            "no-throw-literal": "error",
+            "no-unused-vars": "off",
+            "no-unused-expressions": "error",
+            "no-useless-call": "error",
+            "no-useless-computed-key": "error",
+            "no-useless-concat": "error",
+            "no-useless-constructor": "error",
+            "no-useless-rename": "error",
+            "no-useless-return": "error",
+            "no-var": "error",
+            "object-shorthand": "error",
+            "prefer-arrow-callback": "error",
+            "prefer-const": "error",
+            "prefer-spread": "error",
+            "yoda": "error"
+        }
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,md}": [
+            "prettier --single-quote --jsx-single-quote --write --print-width 120",
+            "git add"
+        ]
+    }
+}
