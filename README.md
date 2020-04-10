@@ -21,7 +21,7 @@ Introducing some terminology, we will refer to the actual use case application a
 
 So consider the following cloud app:
 
-![random-number-stack](random-number-app.jpg)
+![random-number-app](random-number-app.jpg?raw=true "Random Number App")
 
 A user arrives at an API gateway which generates a random number between 1 and some maximum `x`. The random number is sent to a queue by a Lambda function where it is picked up by another Lambda function and stored in a database (DynamoDB).
 
