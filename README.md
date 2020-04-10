@@ -1,6 +1,6 @@
 # cloud-app-factory
 
-_Cloud App Factory_ is a toy example of how to integrate infrastructure as code into a web app.
+_Cloud App Factory_ is a proof of concept of how to integrate infrastructure as code into a web app.
 
 ## Use Case
 
@@ -9,13 +9,13 @@ As DevOps engineers we might ask: how can we give our users deeper access to clo
 - How can we enable data stewards to easily run dynamic, managed, serverless ETL jobs without forcing them to learn PySpark and AWS Glue?
 - How can we enable data scientist to launch custom configured AWS EMR clusters or SageMaker notebooks at the click of a button?
 
-The answer provided by this toy example is this:
+The answer provided by this proof of concept is this:
 
 1. Collect user input via a form on a website.
 1. Send this input to a Lambda function running AWS CDK to generate a custom CloudFormation template.
 1. Return the template to the web application and CRUD the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
 
-## Toy Example
+## Proof of Concept
 
 Introducing some terminology, we will refer to the actual use case application about to be described as "cloud app" whereas the application building the cloud app will be referred to as "web app".
 
