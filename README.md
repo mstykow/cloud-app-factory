@@ -1,6 +1,6 @@
 # cloud-app-factory
 
-*Cloud App Factory* is a toy example of how to integrate infrastructure as code into a web app.
+_Cloud App Factory_ is a toy example of how to integrate infrastructure as code into a web app.
 
 ## Use Case
 
@@ -11,7 +11,7 @@ As DevOps engineers we might ask: how can we give our users deeper access to clo
 
 The answer provided by this toy example is this:
 
-1. Collect user input via a form on a website
+1. Collect user input via a form on a website.
 1. Send this input to a Lambda function running AWS CDK to generate a custom CloudFormation template.
 1. Return the template to the web application and deploy, destroy, and update the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
 
@@ -21,11 +21,11 @@ Introducing some terminology, we will refer to the actual use case application a
 
 So consider the following cloud app:
 
-![random-number-app](random-number-app.jpg?raw=true "Random Number App")
+![random-number-app](random-number-app.jpg?raw=true 'Random Number App')
 
 A user arrives at an API gateway which generates a random number between 1 and some maximum `x`. The random number is sent to a queue by a Lambda function where it is picked up by another Lambda function and stored in a database (DynamoDB).
 
-Users of the web app will be able to specify `x` before deploying the cloud app to their own AWS account. That means they can deploy one copy of the cloud app per choice of `x` which is why the current project is called *Cloud App Factory*.
+Users of the web app will be able to specify `x` before deploying the cloud app to their own AWS account. That means they can deploy one copy of the cloud app per choice of `x` which is why the current project is called _Cloud App Factory_.
 
 ## Project Root
 
@@ -39,7 +39,7 @@ Install dependencies for the React app and CDK stack. Dependencies for the backe
 
 ### `yarn upgrade`
 
-Upgrade dependencies of React app and CDK stack
+Upgrade dependencies of React app and CDK stack.
 
 ### `yarn build`
 
