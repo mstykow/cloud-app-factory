@@ -1,6 +1,6 @@
 # cloud-app-factory
 
-Cloud App Factory is a toy example of how to integrate infrastructure as code into a web app.
+*Cloud App Factory* is a toy example of how to integrate infrastructure as code into a web app.
 
 ## Use Case
 
@@ -12,7 +12,7 @@ As DevOps engineers we might ask: how can we give our users deeper access to clo
 The answer provided by this toy example is this:
 
 1. Collect user input via a form on a website
-1. Send this input to a Lambda function on which we run AWS CDK to generate a custom CloudFormation template.
+1. Send this input to a Lambda function running AWS CDK to generate a custom CloudFormation template.
 1. Return the template to the web application and deploy, destroy, and update the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
 
 ## Toy Example
@@ -25,11 +25,21 @@ So consider the following cloud app:
 
 A user arrives at an API gateway which generates a random number between 1 and some maximum `x`. The random number is sent to a queue by a Lambda function where it is picked up by another Lambda function and stored in a database (DynamoDB).
 
-Users of the web app will be able to specify `x` before deploying the cloud app to their own AWS account. That means they can deploy one copy of the cloud app per choice of `x` which is why the current project is called "Cloud App Factory".
+Users of the web app will be able to specify `x` before deploying the cloud app to their own AWS account. That means they can deploy one copy of the cloud app per choice of `x` which is why the current project is called *Cloud App Factory*.
 
 ## Project Root
 
-In the project root you can run the following commands:
+The present project is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) written entirely in TypeScript, both frontend and backend.
+
+To more efficiently manage the dependencies, the project is bootstrapped with `yarn workspaces`. In the project root you can run the following commands:
+
+### `yarn install`
+
+Install dependencies for the React app and CDK stack. Dependencies for the backends are maintained separately to allow for easier packaging into [Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html).
+
+### `yarn upgrade`
+
+Upgrade dependencies of React app and CDK stack
 
 ### `yarn build`
 

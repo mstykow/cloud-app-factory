@@ -1,7 +1,10 @@
 {
     "name": "cloud-app-factory",
     "private": true,
-    "workspaces": ["app", "infrastructure"],
+    "workspaces": [
+        "app",
+        "infrastructure"
+    ],
     "resolutions": {
         "jest": "~24.9.0"
     },
