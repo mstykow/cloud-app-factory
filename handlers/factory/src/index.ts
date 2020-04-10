@@ -14,7 +14,7 @@ export const handler = async (event: Partial<APIGatewayEvent>): Promise<APIGatew
     console.log('Missing request body');
     return {
       statusCode: 400,
-      body: 'Missing request body'
+      body: 'Missing request body',
     };
   }
 
@@ -27,7 +27,7 @@ export const handler = async (event: Partial<APIGatewayEvent>): Promise<APIGatew
     console.error(error);
     return {
       statusCode: 500,
-      body: `Internal server error: ${error.toString()}`
+      body: `Internal server error: ${error.toString()}`,
     };
   }
 
@@ -38,8 +38,8 @@ export const handler = async (event: Partial<APIGatewayEvent>): Promise<APIGatew
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Methods': 'OPTIONS, POST',
       'Access-Control-Allow-Headers':
-        'Content-Type,X-Amz-Date,Authorization,Host,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'
-    }
+        'Content-Type,X-Amz-Date,Authorization,Host,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent',
+    },
   };
 };
 
@@ -50,8 +50,8 @@ const generateTemplate = (templateProps: TemplateProps) => {
   new RandomNumberStack(cdkApp, stackName, templateProps, {
     env: {
       account: Aws.ACCOUNT_ID,
-      region: 'us-east-1'
-    }
+      region: 'us-east-1',
+    },
   });
 
   const assembly = cdkApp.synth();

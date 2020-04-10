@@ -7,7 +7,7 @@ export const handler = async ({ path }: Partial<APIGatewayEvent>): Promise<APIGa
   if (!queueUrl) {
     return {
       statusCode: 500,
-      body: 'No queue to publish to.'
+      body: 'No queue to publish to.',
     };
   }
 
@@ -20,12 +20,12 @@ export const handler = async ({ path }: Partial<APIGatewayEvent>): Promise<APIGa
   await sqs
     .sendMessage({
       QueueUrl: queueUrl,
-      MessageBody: randomInt
+      MessageBody: randomInt,
     })
     .promise();
 
   return {
     statusCode: 200,
-    body: `You've hit ${path}. Successfully pushed message ${randomInt} to queue.`
+    body: `You've hit ${path}. Successfully pushed message ${randomInt} to queue.`,
   };
 };

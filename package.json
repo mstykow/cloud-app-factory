@@ -3,6 +3,8 @@
     "private": true,
     "workspaces": ["app", "infrastructure", "handlers/factory", "handlers/publish", "handlers/subscribe"],
     "scripts": {
-        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 'bin/**/*.ts' 'lib/**/*.ts' 'test/**/*.ts'"
+        "build": "handlers/factory/package && handlers/publish/package && handlers/subscribe/package",
+        "lint": "eslint --max-warnings=0 '**/src/**/*.{ts,tsx}' '**/bin/**/*.ts' '**/lib/**/*.ts' '**/test/**/*.ts'",
+        "format": "prettier --single-quote --jsx-single-quote --write --print-width 120 '**/src/**/*.{ts,tsx,json,md}' '**/bin/**/*.ts' '**/lib/**/*.ts' '**/test/**/*.ts'"
     }
 }

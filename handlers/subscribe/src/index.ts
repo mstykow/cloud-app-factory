@@ -9,14 +9,14 @@ export const handler = ({ Records: records }: SQSEvent): void => {
 
   const dynamoDb = new AWS.DynamoDB();
 
-  records.forEach(async record => {
+  records.forEach(async (record) => {
     const params: AWS.DynamoDB.PutItemInput = {
       TableName: tableName,
       Item: {
         id: {
-          N: record.body
-        }
-      }
+          N: record.body,
+        },
+      },
     };
 
     await dynamoDb.putItem(params).promise();

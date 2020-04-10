@@ -12,7 +12,7 @@ export class RandomNumberStack extends Stack {
     super(scope, id, stackProps);
 
     const queue = new Queue(this, 'queue', {
-      queueName: `random-number-queue-${maximum}`
+      queueName: `random-number-queue-${maximum}`,
     });
 
     const assetBucket = Bucket.fromBucketName(this, 'assetBucket', 'template-factory-asset-bucket');
@@ -22,25 +22,25 @@ export class RandomNumberStack extends Stack {
       code: Code.fromBucket(assetBucket, 'publish/deployment.zip'),
       layers: [
         new LayerVersion(this, 'publishLayer', {
-          code: Code.fromBucket(assetBucket, 'publish/dependencies.zip')
-        })
+          code: Code.fromBucket(assetBucket, 'publish/dependencies.zip'),
+        }),
       ],
       handler: 'index.handler',
       environment: {
         QUEUE_URL: queue.queueUrl,
-        MAXIMUM: maximum.toString()
-      }
+        MAXIMUM: maximum.toString(),
+      },
     });
 
     queue.grantSendMessages(publishLambda);
 
     new LambdaRestApi(this, 'publishEndpoint', {
-      handler: publishLambda
+      handler: publishLambda,
     });
 
     const table = new Table(this, 'random-number-table', {
       partitionKey: { name: 'id', type: AttributeType.NUMBER },
-      removalPolicy: RemovalPolicy.DESTROY
+      removalPolicy: RemovalPolicy.DESTROY,
     });
 
     const subscribeLambda = new LambdaFunction(this, 'subscribeLambda', {
@@ -48,13 +48,13 @@ export class RandomNumberStack extends Stack {
       code: Code.fromBucket(assetBucket, 'subscribe/deployment.zip'),
       layers: [
         new LayerVersion(this, 'subscribeLayer', {
-          code: Code.fromBucket(assetBucket, 'subscribe/dependencies.zip')
-        })
+          code: Code.fromBucket(assetBucket, 'subscribe/dependencies.zip'),
+        }),
       ],
       handler: 'index.handler',
       environment: {
-        TABLE_NAME: table.tableName
-      }
+        TABLE_NAME: table.tableName,
+      },
     });
 
     subscribeLambda.addEventSource(new SqsEventSource(queue));
