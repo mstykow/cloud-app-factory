@@ -13,7 +13,7 @@ The answer provided by this toy example is this:
 
 1. Collect user input via a form on a website.
 1. Send this input to a Lambda function running AWS CDK to generate a custom CloudFormation template.
-1. Return the template to the web application and deploy, destroy, and update the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
+1. Return the template to the web application and CRUD the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
 
 ## Toy Example
 
