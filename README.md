@@ -31,7 +31,7 @@ Users of the web app will be able to specify `x` before deploying the cloud app 
 
 The present project is a [monorepo](https://github.com/babel/babel/blob/master/doc/design/monorepo.md) written entirely in TypeScript, both frontend and backend.
 
-To more efficiently manage the dependencies, the project is bootstrapped with `yarn workspaces`. In the project root you can run the following commands:
+To more efficiently manage the dependencies, the project is bootstrapped with [yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/). In the project root you can run the following commands:
 
 ### `yarn install`
 
