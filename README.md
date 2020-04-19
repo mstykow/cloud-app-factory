@@ -23,7 +23,7 @@ In this tutorial we will build a web app that collects some input via a form. Th
 
 The cloud app used for this tutorial looks as follows:
 
-![media/random-number-app](random-number-app.jpg?raw=true 'Random Number App')
+![random-number-app](media/random-number-app.jpg?raw=true 'Random Number App')
 
 A user arrives at an API gateway which generates a random number between 1 and some maximum `x`. The random number is sent to a queue by a Lambda function where it is picked up by another Lambda function and stored in a database (DynamoDB).
 
