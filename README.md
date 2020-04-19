@@ -17,12 +17,6 @@ As a second step we could make our Cloud infrastructure reusable as well: tools 
 
 So in a last iteration we create a user interface such as a web app which runs our infrastructure code based on some very simple user input received through a form on a page. That's what this tutorial is about: showing how to deploy Cloud infrastructure at the click of a button.
 
-The answer provided by this tutorial is this:
-
-1. Collect user input via a form on a website.
-1. Send this input to a Lambda function running AWS CDK to generate a custom CloudFormation template.
-1. Return the template to the web application and CRUD the required infrastructure through the AWS CloudFormation SDK. Credentials to do so can be obtained via a custom user pool or, not implemented here, a federated login.
-
 ## Tutorial
 
 In this tutorial we will build a web app that collects some input via a form. This input will be sent to an [AWS Lambda](https://aws.amazon.com/lambda/) function which dynamically generates for us the infrastructure code to deploy an application in the Cloud which we will call "cloud app" for short.
