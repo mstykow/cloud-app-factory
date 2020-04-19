@@ -44,16 +44,21 @@ const App: React.FC = () => {
     if (templateState.post.error) {
       setSnackbarProps({ message: templateState.post.error, severity: 'error' });
       setSnackbarOpen(true);
+    } else if (templateState.data) {
+      setSnackbarProps({ message: 'Successfully generated template!', severity: 'success' });
+      setSnackbarOpen(true);
     }
+  }, [templateState]);
+
+  useEffect(() => {
     if (cloudFormationState.post.error) {
       setSnackbarProps({ message: cloudFormationState.post.error, severity: 'error' });
       setSnackbarOpen(true);
-    }
-    if (cloudFormationState.data) {
+    } else if (cloudFormationState.data) {
       setSnackbarProps({ message: `Creating ${cloudFormationState.data}`, severity: 'success' });
       setSnackbarOpen(true);
     }
-  }, [templateState.post.error, cloudFormationState.post.error, cloudFormationState.data]);
+  }, [cloudFormationState]);
 
   const handleSnackbarClose = (_event: React.SyntheticEvent, reason?: string) => {
     if (reason !== 'clickaway') {
@@ -89,6 +94,7 @@ const App: React.FC = () => {
         }
       } catch (error) {
         cloudFormationDispatch(sendTemplateError(error.toString()));
+        templateDispatch(sendTemplateError(error.toString()));
       }
     }
   };

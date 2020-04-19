@@ -9,9 +9,9 @@ import './index.css';
 Amplify.configure(awsconfig);
 
 ReactDOM.render(
-  <React.StrictMode>
+  <>
     <CssBaseline />
     <App />
-  </React.StrictMode>,
+  </>,
   document.getElementById('root')
 );

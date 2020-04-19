@@ -39,10 +39,11 @@ export const templateReducer = (state: TemplateState, action: Action): TemplateS
     case CREATE_TEMPLATE_SUCCESS:
       return { ...state, data: action.data, post: { loading: false, error: null } };
     case CREATE_TEMPLATE_LOADING:
-      return { ...state, post: { ...state.post, loading: true } };
+      return { ...state, data: null, post: { ...state.post, loading: true } };
     case CREATE_TEMPLATE_ERROR:
-      return { ...state, post: { loading: false, error: action.data } };
+      return { ...state, data: null, post: { loading: false, error: action.data } };
     case SEND_TEMPLATE_SUCCESS:
+    case SEND_TEMPLATE_ERROR:
       return { ...state, data: null };
     default:
       return state;
@@ -70,9 +71,9 @@ export const cloudFormationReducer = (state: CloudFormationState, action: Action
     case SEND_TEMPLATE_SUCCESS:
       return { ...state, data: action.data, post: { loading: false, error: null } };
     case SEND_TEMPLATE_LOADING:
-      return { ...state, post: { ...state.post, loading: true } };
+      return { ...state, data: null, post: { ...state.post, loading: true } };
     case SEND_TEMPLATE_ERROR:
-      return { ...state, post: { loading: false, error: action.data } };
+      return { ...state, data: null, post: { loading: false, error: action.data } };
     default:
       return state;
   }

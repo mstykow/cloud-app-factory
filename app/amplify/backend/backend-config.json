@@ -1,9 +1,0 @@
-{
-	"auth": {
-		"templatefactoryapp1dc30842": {
-			"service": "Cognito",
-			"providerPlugin": "awscloudformation",
-			"dependsOn": []
-		}
-	}
-}
