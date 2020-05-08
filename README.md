@@ -1,6 +1,6 @@
 # cloud-app-factory
 
-_Cloud App Factory_ is a tutorial of how to deploy Cloud infrastructure at the click of a web app button.
+_Cloud App Factory_: deploy Cloud infrastructure at the click of a web app button with AWS CDK—a tutorial.
 
 ![generate-template-success](media/generate-template-success.png#75p)
 
@@ -162,7 +162,7 @@ Either going back to the root directory or still in `/app` execute
 yarn start
 ```
 
-to start the web app locally. You should be greeted by the following screen (our your localized version of it):
+to start the web app locally. You should be greeted by the following screen (or your localized version of it):
 
 ![web-auth](media/web-auth.png#75p)
 
@@ -219,6 +219,10 @@ When you're done playing with the app, don't forget to clean up, i.e. delete, al
 ... going to the `infrastructure/` directory and executing `cdk destroy`
 
 ... going to the `app/` directory and executing `amplify delete`. Before doing this step, you need to manually detach the administrator policy we added a few steps back.
+
+## Conclusion
+
+After going through the steps of this tutorial you are now in a position to apply the learnings to your own use case. That is, begin by writing the infrastructure needed for _your_ use case in CDK and add parameters at the relevant places. Once you have achieved this and updated the backend to accept and process all parameters, you can work on extending the frontend functionality to become a full CRUD application getting templates from the backend and taking advantage of the full CloudFormation SDK arsenal in the frontend. The only limit will be your creativity!
 
 ## Summary of Useful Commands
 

@@ -101,43 +101,67 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Grid container spacing={1} alignContent='center' justify='center' className={classes.container}>
-        <Grid item xs={12} className={classes.textAlignCenter}>
-          <TextField
-            type='number'
-            value={maximum}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => setMaximum(event.target.valueAsNumber)}
-            inputProps={{ min: 1, step: '1' }}
-            variant='outlined'
-            label='Highest Random Number'
-          />
-        </Grid>
-        <Grid item xs={12} className={classes.textAlignCenter}>
-          <Button
-            variant='contained'
-            color='primary'
-            onClick={onRequestTemplate}
-            disabled={templateState.post.loading}
-            className={classes.button}
-          >
-            {templateState.post.loading ? <CircularProgress size={20} /> : 'Request Template'}
-          </Button>
-        </Grid>
-        <Grid item xs={12} className={classes.textAlignCenter}>
-          <Button
-            variant='contained'
-            color='primary'
-            onClick={onSendTemplate}
-            disabled={!templateState.data || cloudFormationState.post.loading}
-            className={classes.button}
-          >
-            {cloudFormationState.post.loading ? <CircularProgress size={20} /> : 'Build Stack'}
-          </Button>
-        </Grid>
-      </Grid>
+      {renderInputAndButtons()}
       {renderSnackbar()}
     </>
   );
+
+  function renderInputAndButtons() {
+    return (
+      <Grid container spacing={1} alignContent='center' justify='center' className={classes.container}>
+        {renderInputField()}
+        {renderRequestButton()}
+        {renderBuildButton()}
+      </Grid>
+    );
+  }
+
+  function renderInputField() {
+    return (
+      <Grid item xs={12} className={classes.textAlignCenter}>
+        <TextField
+          type='number'
+          value={maximum}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setMaximum(event.target.valueAsNumber)}
+          inputProps={{ min: 1, step: '1' }}
+          variant='outlined'
+          label='Highest Random Number'
+        />
+      </Grid>
+    );
+  }
+
+  function renderRequestButton() {
+    return (
+      <Grid item xs={12} className={classes.textAlignCenter}>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={onRequestTemplate}
+          disabled={templateState.post.loading}
+          className={classes.button}
+        >
+          {templateState.post.loading ? <CircularProgress size={20} /> : 'Request Template'}
+        </Button>
+      </Grid>
+    );
+  }
+
+  function renderBuildButton() {
+    return (
+      <Grid item xs={12} className={classes.textAlignCenter}>
+        <Button
+          variant='contained'
+          color='primary'
+          onClick={onSendTemplate}
+          disabled={!templateState.data || cloudFormationState.post.loading}
+          className={classes.button}
+        >
+          {cloudFormationState.post.loading ? <CircularProgress size={20} /> : 'Build Stack'}
+        </Button>
+      </Grid>
+    );
+  }
 
   function renderSnackbar() {
     return (
