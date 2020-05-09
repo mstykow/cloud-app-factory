@@ -122,7 +122,7 @@ curl --data "{\"maximum\":10}" INSERT_YOUR_OUTPUT_URL_HERE > template.yaml
 
 This should generate a template file similar to the one you can find at `/infrastructure/template.yaml`. We could now go to CloudFormation in our AWS Console and deploy this template. However, in the next step we will also start setting up the web app that does this for us.
 
-Before we go on, please copy the invoke URL to the correct place inside `app/src/config.ts`. You'll find a note there about where it goes.
+Before we go on, please copy the invocation URL to the correct place inside `app/src/config.ts`. You'll find a note there about where it goes.
 
 ### 4. Setting up a User Pool for the Web App
 
@@ -198,7 +198,7 @@ Head over to CloudFormation and you'll see your stacks in creation:
 
 ![creating-templates](media/creating-templates.png#75p)
 
-Note how there are other stacks with different values for the max random number. Each stack has it's own invoke URL which when called generates a random number for you:
+Note how there are other stacks with different values for the max random number. Each stack has it's own invocation URL which when called generates a random number for you:
 
 ![stack-output](media/stack-output.png#75p)
 
