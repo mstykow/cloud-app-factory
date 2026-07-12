@@ -17,8 +17,8 @@ jobs:
       - name: Run Provenant
         uses: getprovenant/provenant-action@v1
         with:
-          # Exclude the tool's own config dir: the policy file names licenses like
-          # gpl-3.0, which the scanner would otherwise detect in that file itself.
+          # Exclude the tool's own config dir so the policy file (which lists
+          # license keys) is not itself scanned as source and flagged.
           args: "--license --package --copyright --ignore .provenant/*"
           output-format: json-pp
           output-file: provenant-results.json
