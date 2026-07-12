@@ -2,6 +2,10 @@ name: Provenant scan
 
 on:
   pull_request:
+  # Also scan the default branch so results populate Security -> Code scanning
+  # (the tab is scoped to the default branch; PR-only runs never scan it).
+  push:
+    branches: [master]
 
 permissions:
   contents: read
@@ -12,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Run Provenant
         uses: getprovenant/provenant-action@v1
@@ -28,13 +32,13 @@ jobs:
 
       - name: Upload SARIF to code scanning
         if: always()
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         with:
           sarif_file: provenant.sarif
 
       - name: Upload scan report artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: provenant-results
           path: |
