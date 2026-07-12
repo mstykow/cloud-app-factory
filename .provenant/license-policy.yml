@@ -1,0 +1,12 @@
+# Example Provenant license policy for the CI scan.
+# Severities drive the --fail-on gate (exit code 3) and SARIF levels.
+license_policies:
+  - license_key: gpl-3.0
+    label: Prohibited (strong copyleft)
+    compliance_alert: error
+  - license_key: agpl-3.0
+    label: Prohibited (network copyleft)
+    compliance_alert: error
+  - license_key: mit
+    label: Permissive (noted)
+    compliance_alert: warning

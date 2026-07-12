@@ -1,0 +1,40 @@
+name: Provenant scan
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write # required to upload SARIF to code scanning
+
+jobs:
+  provenant:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Run Provenant
+        uses: getprovenant/provenant-action@v1
+        with:
+          args: "--license --package --copyright"
+          output-format: json-pp
+          output-file: provenant-results.json
+          license-policy: .provenant/license-policy.yml
+          fail-on: error
+          sarif-file: provenant.sarif
+
+      - name: Upload SARIF to code scanning
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: provenant.sarif
+
+      - name: Upload scan report artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: provenant-results
+          path: |
+            provenant-results.json
+            provenant.sarif
